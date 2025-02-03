@@ -1,38 +1,71 @@
 package Rago;
 
 import java.util.Arrays;
-import java.util.Collections;
 
-public class Exercise2 {
+public class ExerciseArray {
     public static void main(String[] args) {
 
-        Integer[] numbers = new Integer[10];
-
-
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = i;
+        Integer[] numbers = {4, 2, 5, 1, 0, 8, 7, 6, 3, 9};
+        for (int x = 0; x < numbers.length; x++) {
         }
 
-        int smallest = numbers[0];
-        int largest = numbers[0];
-        int sum = 0;
+        //Max number
+        	int max = numbers[0];
+        	for (int x = 0; x < numbers.length; x++) {
+        		if (numbers[x] > max) max = numbers[x];
+        	}
+        	System.out.println("Largest is " + max);
 
-        for (int num : numbers) {
-            if (num < smallest) smallest = num;
-            if (num > largest) largest = num;
-            sum += num;
-        }
-
-
-        double average = (double) sum / numbers.length;
+        //Min number	
+        	int min = numbers[0];
+        	for (int x = 0; x < numbers.length; x++) {
+        		if (numbers[x] < min) min = numbers[x];
+        	}
+        	System.out.println("Smallest is " + min);
         
-        System.out.println("Largest Value: " + largest);
-        System.out.println("Smallest Value: " + smallest);
-        System.out.println("Sum of Elements: " + sum);
-        Arrays.sort(numbers);
-        System.out.println("Ascending Order: " + Arrays.toString(numbers));
-        Arrays.sort(numbers, Collections.reverseOrder());
-        System.out.println("Descending Order: " + Arrays.toString(numbers));
-        System.out.println("Average: " + average);
+        //Total number
+        	int total = 0;
+        	for(int x = 0; x < numbers.length; x++) {
+        		total += numbers[x];
+        	}
+        	
+        	System.out.println("Total is " + total);
+        	
+        //Ascending Order 
+    		for (int i = 0; i < numbers.length; i++) {
+    			for (int j = i + 1; j < numbers.length; j++) {
+    				if(numbers[i] > numbers[j]) {
+    					int temp = numbers[i];
+    					numbers[i] = numbers [j];
+    					numbers[j] = temp;
+    				}
+    			}
+    		}
+    		
+    		System.out.println("Ascending order: ");
+    		for (int i = 0; i < numbers.length; i++) {
+    			System.out.print(numbers[i] + " ");
+    		}
+        
+    	//Descending Order
+    		for (int i = 0; i < numbers.length; i++) {
+    			for (int j = i + 1; j < numbers.length; j++) {
+    				if(numbers[i] < numbers[j]) {
+    					int temp = numbers[i];
+    					numbers[i] = numbers [j];
+    					numbers[j] = temp;
+    				}
+    			}
+    		}
+    		
+    		System.out.println("\nDescending order: ");
+    		for (int i = 0; i < numbers.length; i++) {
+    			System.out.print(numbers[i] + " ");
+    		}
+    	//Average Number
+    		System.out.println("");
+    		float average = (float) total / numbers.length;
+    		System.out.println("Average is " + average);
+    		
     }
 }
